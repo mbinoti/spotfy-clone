@@ -10,7 +10,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'spot',
+      title: 'spot-clone',
       theme: ThemeData.dark(),
       home: const Scaffold(
         body: MenuBar(),
@@ -26,30 +26,32 @@ class MenuBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double cyanContainerHeight = constraints.maxHeight * 0.10;
+        // height of area 1
+        double area1Height = constraints.maxHeight * 0.10;
 
-        // Definindo a largura máxima que o primeiro container pode ter.
-        double maxWidthForFirstContainer =
-            MediaQuery.of(context).size.width * 0.15;
+        // width max of area 2.
+        double maxWidthArea2 = MediaQuery.of(context).size.width * 0.15;
 
         // Se o constraints.maxWidth * 0.2 for maior que maxWidthForFirstContainer,
         // use maxWidthForFirstContainer.
         double widthForFirstContainer =
-            (constraints.maxWidth * 0.2) > maxWidthForFirstContainer
-                ? maxWidthForFirstContainer
+            (constraints.maxWidth * 0.2) > maxWidthArea2
+                ? maxWidthArea2
                 : constraints.maxWidth * 0.15;
 
         return Column(
           children: [
+            // area 2.
             Expanded(
-              child: NewWidget(
+              child: Area2(
                 widthForFirstContainer: widthForFirstContainer,
-                maxWidthForFirstContainer: maxWidthForFirstContainer,
+                maxWidthForFirstArea2: maxWidthArea2,
               ),
             ),
+            // area 1
             Container(
-              height: cyanContainerHeight,
-              color: Colors.cyanAccent,
+              height: area1Height,
+              color: Color.fromARGB(255, 16, 198, 222),
             ),
           ],
         );
@@ -58,26 +60,26 @@ class MenuBar extends StatelessWidget {
   }
 }
 
-class NewWidget extends StatelessWidget {
-  const NewWidget({
+class Area2 extends StatelessWidget {
+  Area2({
     Key? key,
     required this.widthForFirstContainer,
-    required this.maxWidthForFirstContainer,
+    required this.maxWidthForFirstArea2,
   }) : super(key: key);
 
-  final double widthForFirstContainer;
-  final double maxWidthForFirstContainer;
+  double widthForFirstContainer;
+  final double maxWidthForFirstArea2;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        // container 1
+        // menu 1
         Container(
           width: widthForFirstContainer,
           color: const Color.fromARGB(255, 198, 169, 159),
           child: OverflowBox(
-            maxWidth: maxWidthForFirstContainer,
+            maxWidth: maxWidthForFirstArea2,
             // maxHeight: maxHeightForOverflowBox,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -91,12 +93,39 @@ class NewWidget extends StatelessWidget {
             ),
           ),
         ),
-        // expanded container
+        // adicionar o mouseregion com divisor apenas quando mouse estiver na rea.
+        MouseRegion(
+          cursor: SystemMouseCursors.resizeLeftRight,
+          child: GestureDetector(
+            onHorizontalDragUpdate: (details) {
+              // Se o usuário arrastar o mouse para a esquerda, o valor será negativo.
+              // Se o usuário arrastar o mouse para a direita, o valor será positivo.
+              double newValue = widthForFirstContainer + details.delta.dx;
+
+              // Se o valor for menor que 0, use 0.
+              // Se o valor for maior que maxWidthForFirstArea2, use maxWidthForFirstArea2.
+              if (newValue < 0) {
+                newValue = 0;
+              } else if (newValue > maxWidthForFirstArea2) {
+                newValue = maxWidthForFirstArea2;
+              }
+
+              // Atualize a largura do container.
+              widthForFirstContainer = newValue;
+            },
+            child: Container(
+              width: 10.0,
+              color: Colors.white,
+            ),
+          ),
+        ),
+
+        // menu 2
         Expanded(
           child: Container(
             margin: const EdgeInsets.all(14.0),
             decoration: BoxDecoration(
-              color: Colors.yellowAccent,
+              color: const Color.fromARGB(255, 141, 141, 81),
               borderRadius: BorderRadius.circular(10.0),
             ),
           ),

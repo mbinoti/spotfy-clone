@@ -63,7 +63,7 @@ class menuLateral extends StatelessWidget {
             children: [
               buildGreenContainer(),
               // const SizedBox(height: 10.0), // espaço entre os items
-              // Expan ded(child: buildGreenContainer()),
+              // Expanded(child: buildGreenContainer()),
               // const SizedBox(height: 10.0), // espaço entre os items
               // Você pode adicionar quantos buildGreenContainer() quiser
             ],

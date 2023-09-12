@@ -61,7 +61,7 @@ class menuLateral extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              buildGreenContainer(),
+              buildGreen(),
               // const SizedBox(height: 10.0), // espaço entre os items
               // Expanded(child: buildGreenContainer()),
               // const SizedBox(height: 10.0), // espaço entre os items
@@ -109,7 +109,7 @@ class menuLateral extends StatelessWidget {
     );
   }
 
-  Widget buildGreenContainer() {
+  Widget buildGreen() {
     return Container(
       margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(

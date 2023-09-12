@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             width: _leftContainerWidth,
             color: Colors.red,
-            child: Center(child: Text('Red Container')),
+            child: const Center(child: Text('Red Container')),
           ),
           MouseRegion(
             cursor: SystemMouseCursors.resizeLeftRight,
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Container(
               color: Colors.blue,
-              child: Center(child: Text('Blue Container')),
+              child: const Center(child: Text('Blue Container')),
             ),
           ),
         ],

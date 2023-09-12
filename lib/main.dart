@@ -109,7 +109,6 @@ class menuLateral extends StatelessWidget {
     );
   }
 
-  // Este é o método reutilizável para construir o container verde.
   Widget buildGreenContainer() {
     return Container(
       margin: const EdgeInsets.all(5.0),

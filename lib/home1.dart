@@ -76,7 +76,7 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
               },
             ),
           ),
-          Container(height: 90, color: const Color.fromARGB(255, 71, 46, 44)),
+          Container(height: 90, color: Color.fromARGB(255, 19, 47, 29)),
         ],
       ),
     );

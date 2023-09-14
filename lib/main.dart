@@ -29,7 +29,6 @@ class Home extends StatelessWidget {
       builder: (context, constraints) {
         return Column(
           children: [
-            menuLateral(),
             const Spacer(),
             Align(
               alignment: Alignment.bottomLeft,
@@ -38,6 +37,7 @@ class Home extends StatelessWidget {
                 color: Colors.red,
               ),
             ),
+            menuLateral(constraints: constraints),
           ],
         );
       },
@@ -46,66 +46,73 @@ class Home extends StatelessWidget {
 }
 
 class menuLateral extends StatelessWidget {
+  var constraints;
+
   menuLateral({
     Key? key,
+    required this.constraints,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // menu 1
-        Container(
-          width: 300,
-          color: const Color.fromARGB(255, 198, 169, 159),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              buildGreen(),
-              // const SizedBox(height: 10.0), // espaço entre os items
-              // Expanded(child: buildGreenContainer()),
-              // const SizedBox(height: 10.0), // espaço entre os items
-              // Você pode adicionar quantos buildGreenContainer() quiser
-            ],
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        children: [
+          //
+          Container(
+            width: 300,
+            height: constraints.maxHeight,
+            color: Color.fromARGB(255, 222, 212, 208),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                buildGreen(),
+                const SizedBox(height: 5.0), // espaço entre os items
+                buildGreen(),
+                const SizedBox(height: 5.0), // espaço entre os items
+                // Você pode adicionar quantos buildGreenContainer() quiser
+              ],
+            ),
           ),
-        ),
-        // adicionar o mouseregion com divisor apenas quando mouse estiver na rea.
-        // MouseRegion(
-        //   cursor: SystemMouseCursors.resizeLeftRight,
-        //   child: GestureDetector(
-        //     onHorizontalDragUpdate: (details) {
-        //       // Se o usuário arrastar o mouse para a esquerda, o valor será negativo.
-        //       // Se o usuário arrastar o mouse para a direita, o valor será positivo.
-        //       double newValue = widthForFirstContainer + details.delta.dx;
+          // adicionar o mouseregion com divisor apenas quando mouse estiver na rea.
+          // MouseRegion(
+          //   cursor: SystemMouseCursors.resizeLeftRight,
+          //   child: GestureDetector(
+          //     onHorizontalDragUpdate: (details) {
+          //       // Se o usuário arrastar o mouse para a esquerda, o valor será negativo.
+          //       // Se o usuário arrastar o mouse para a direita, o valor será positivo.
+          //       double newValue = widthForFirstContainer + details.delta.dx;
 
-        //       // Se o valor for menor que 0, use 0.
-        //       // Se o valor for maior que maxWidthForFirstArea2, use maxWidthForFirstArea2.
-        //       if (newValue < 0) {
-        //         newValue = 0;
-        //       } else if (newValue > maxWidthForFirstArea2) {
-        //         newValue = maxWidthForFirstArea2;
-        //       }
+          //       // Se o valor for menor que 0, use 0.
+          //       // Se o valor for maior que maxWidthForFirstArea2, use maxWidthForFirstArea2.
+          //       if (newValue < 0) {
+          //         newValue = 0;
+          //       } else if (newValue > maxWidthForFirstArea2) {
+          //         newValue = maxWidthForFirstArea2;
+          //       }
 
-        //       // Atualize a largura do container.
-        //       widthForFirstContainer = newValue;
-        //     },
-        //     child: Container(
-        //       width: 10.0,
-        //       color: Colors.white,
-        //     ),
-        //   ),
-        // ),
+          //       // Atualize a largura do container.
+          //       widthForFirstContainer = newValue;
+          //     },
+          //     child: Container(
+          //       width: 10.0,
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          // ),
 
-        // Expanded(
-        //   child: Container(
-        //     margin: const EdgeInsets.all(14.0),
-        //     decoration: BoxDecoration(
-        //       color: Colors.yellow,
-        //       borderRadius: BorderRadius.circular(10.0),
-        //     ),
-        //   ),
-        // ),
-      ],
+          // Expanded(
+          //   child: Container(
+          //     margin: const EdgeInsets.all(14.0),
+          //     decoration: BoxDecoration(
+          //       color: Colors.yellow,
+          //       borderRadius: BorderRadius.circular(10.0),
+          //     ),
+          //   ),
+          // ),
+        ],
+      ),
     );
   }
 

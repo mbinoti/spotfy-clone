@@ -136,7 +136,7 @@ class menuLateral extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(221, 20, 147, 30),
+        color: const Color.fromARGB(221, 147, 20, 136),
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: const Padding(

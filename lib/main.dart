@@ -79,7 +79,7 @@ class menuLateral extends StatelessWidget {
           Container(
             width: 300,
             height: constraints.maxHeight,
-            color: Color.fromARGB(255, 222, 212, 208),
+            color: const Color.fromARGB(255, 222, 212, 208),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [

@@ -27,17 +27,34 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
+        var widthForContainerRed = 200.0;
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                height: 90,
-                color: Colors.red,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Container(
+                  // height: constraints.maxHeight,
+                  color: Colors.yellow,
+                  width: 100,
+                ),
               ),
             ),
-            menuLateral(constraints: constraints),
+            if (constraints.maxHeight >= 100)
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: constraints.maxWidth,
+                ),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    height: 90,
+                    width: constraints.maxWidth,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
           ],
         );
       },

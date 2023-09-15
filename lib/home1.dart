@@ -21,63 +21,52 @@ class ResponsiveScreen extends StatefulWidget {
 }
 
 class _ResponsiveScreenState extends State<ResponsiveScreen> {
-  double blueWidth = 70;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: LayoutBuilder(
-              builder:
-                  (BuildContext outerContext, BoxConstraints outerConstraints) {
-                if (outerConstraints.maxWidth < 70) {
-                  return Container(width: 50, color: Colors.yellow);
-                }
-
-                return Row(
-                  children: [
-                    LayoutBuilder(
-                      builder: (BuildContext innerContext,
-                          BoxConstraints innerConstraints) {
-                        return Container(
-                          width: outerConstraints.maxWidth - blueWidth,
-                          color: Colors.blue,
-                          child: Align(
-                            alignment: Alignment.topLeft,
-                            child: Text('${innerConstraints.maxWidth}'),
-                          ),
-                        );
-                      },
-                    ),
-                    GestureDetector(
-                      onPanUpdate: (details) {
-                        setState(() {
-                          blueWidth += details.delta.dx;
-                        });
-                      },
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.resizeLeftRight,
-                        child: Container(width: 5, color: Colors.transparent),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(
-                        color: Colors.green,
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text('${outerConstraints.maxWidth}'),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
-          Container(height: 90, color: Color.fromARGB(255, 15, 55, 29)),
-        ],
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          if (constraints.maxWidth < 600) {
+            return Container(
+              color: Colors.red,
+              child: const Center(
+                child: Text(
+                  'Mobile',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          } else if (constraints.maxWidth < 900) {
+            return Container(
+              color: Colors.green,
+              child: const Center(
+                child: Text(
+                  'Tablet',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          } else {
+            return Container(
+              color: Colors.blue,
+              child: const Center(
+                child: Text(
+                  'Desktop',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          }
+        },
       ),
     );
   }

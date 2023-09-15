@@ -52,7 +52,6 @@ class MinhaTela extends StatelessWidget {
               ],
             ),
           ),
-          // Para o Container vermelho de altura 90px na parte inferior
           Container(
             height: 90,
             color: Colors.red,

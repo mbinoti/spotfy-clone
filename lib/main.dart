@@ -35,7 +35,6 @@ class Home extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(3.0),
                 child: Container(
-                  // height: constraints.maxHeight,
                   color: Colors.yellow,
                   width: 100,
                 ),

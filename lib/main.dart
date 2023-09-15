@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        var widthForContainerRed = 200.0;
+        // var widthForContainerRed = 200.0;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

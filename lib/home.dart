@@ -122,7 +122,6 @@ class MinhaTela extends StatelessWidget {
             ),
           ),
 
-          // Espaço entre os itens fixos e a lista
           const SizedBox(height: 10.0),
 
           // Lista que ocupa o restante do espaço

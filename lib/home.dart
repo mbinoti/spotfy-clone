@@ -24,7 +24,6 @@ class MinhaTela extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                // Container azul ocupando 20% do espaço
                 ConstrainedBox(
                   constraints: const BoxConstraints(
                     minWidth: 200,

@@ -124,7 +124,6 @@ class MinhaTela extends StatelessWidget {
 
           const SizedBox(height: 10.0),
 
-          // Lista que ocupa o restante do espaço
           Expanded(
             child: ListView.builder(
               itemCount: 10,

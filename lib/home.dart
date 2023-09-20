@@ -21,7 +21,6 @@ class MinhaTela extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Para a Row responsiva
           Expanded(
             child: Row(
               children: [

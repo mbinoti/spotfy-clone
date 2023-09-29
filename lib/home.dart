@@ -6,7 +6,7 @@ class MeuApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -44,7 +44,8 @@ class MinhaTela extends StatelessWidget {
                 // Container verde ocupando 80% do espaço
                 Flexible(
                   flex: 8,
-                  child: Container(color: Color.fromARGB(255, 152, 201, 59)),
+                  child:
+                      Container(color: const Color.fromARGB(255, 152, 201, 59)),
                 ),
               ],
             ),

@@ -6,7 +6,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tela Responsiva',
+      title: 'Tela responsiva',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -57,7 +57,7 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
               color: Colors.blue,
               child: const Center(
                 child: Text(
-                  'Desktop',
+                  'desktop',
                   style: TextStyle(
                     fontSize: 30,
                     color: Colors.white,

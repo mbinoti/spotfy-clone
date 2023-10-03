@@ -47,7 +47,7 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
                   'Tablet',
                   style: TextStyle(
                     fontSize: 30,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 209, 77, 77),
                   ),
                 ),
               ),

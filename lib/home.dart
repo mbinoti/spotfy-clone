@@ -30,7 +30,7 @@ class MinhaTela extends StatelessWidget {
                     maxWidth: 200,
                   ),
                   child: Container(
-                    color: Colors.blue,
+                    color: const Color.fromARGB(255, 69, 72, 75),
                     width: MediaQuery.of(context).size.width * 0.30,
                     child: Column(
                       children: [

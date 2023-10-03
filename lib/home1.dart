@@ -28,7 +28,7 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
         builder: (context, constraints) {
           if (constraints.maxWidth < 600) {
             return Container(
-              color: Colors.red,
+              color: const Color.fromARGB(255, 143, 139, 138),
               child: const Center(
                 child: Text(
                   'Mobile',

@@ -11,7 +11,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'spot-clone',
+      title: 'spot clone',
       theme: ThemeData.dark(),
       home: const Scaffold(
         body: Home(),

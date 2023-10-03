@@ -60,7 +60,7 @@ class _ResponsiveScreenState extends State<ResponsiveScreen> {
                   'desktop',
                   style: TextStyle(
                     fontSize: 30,
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 100, 46, 46),
                   ),
                 ),
               ),
